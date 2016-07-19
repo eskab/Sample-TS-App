@@ -12,6 +12,10 @@ export class AboutComponent implements OnInit {
     // Do stuff
   }
 
+  updateValue(target: string): void {
+    this.foo = target;
+  }
+
   ngOnInit() {
     console.log('Hello About');
   }
