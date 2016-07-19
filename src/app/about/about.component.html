@@ -1,3 +1,8 @@
 <p>
-  About Works!
+  Two-way data binding should work in this way
+</p>
+<p>ngMod: <input type="text" [(ngModel)]="foo" /></p>
+<p>keyUpEnter: <input type="text" [value]="foo" (keyup.enter)="foo = $event.target.value" /></p>
+<p>
+  value: {{foo}}
 </p>
