@@ -10,7 +10,7 @@ import '../style/app.scss';
  * Top Level Component
  */
 @Component({
-  selector: 'my-app', // <my-app></my-app>
+  selector: 'my-first-app',
   providers: [ApiService],
   directives: [...ROUTER_DIRECTIVES],
   templateUrl: './app.component.html',
@@ -19,6 +19,5 @@ import '../style/app.scss';
 export class AppComponent {
   url = 'https://github.com/preboot/angular2-webpack';
 
-  constructor(private api: ApiService) {
-  }
+  constructor(private api: ApiService) {}
 }
