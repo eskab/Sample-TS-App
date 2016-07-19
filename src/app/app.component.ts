@@ -17,7 +17,7 @@ import '../style/app.scss';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  url = 'https://github.com/preboot/angular2-webpack';
+  public url: string = 'http://localhost:8080';
 
   constructor(private api: ApiService) {}
 }

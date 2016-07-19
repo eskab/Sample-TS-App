@@ -11,7 +11,7 @@ if (process.env.ENV === 'build') {
 }
 
 bootstrap(AppComponent, [
-    // These are dependencies of our App
+    // Array with dependiences of our application
     HTTP_PROVIDERS,
     APP_ROUTER_PROVIDERS
   ])
