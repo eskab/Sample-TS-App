@@ -1,12 +1,14 @@
 import {
   inject,
+  async,
   addProviders,
 } from '@angular/core/testing';
 
 // Load the implementations that should be tested
-import { HomeService } from './index';
+import { HomeService, HomeResolver } from './index';
 
 import { HTTP_PROVIDERS } from '@angular/http';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 describe('HomeService', () => {
   // provide our implementations or mocks to the dependency injector
@@ -58,6 +60,18 @@ describe('HomeService', () => {
       expect(reason).toBe('Server error');
     });
     expect(console.log).toHaveBeenCalledWith('Server error');
+  }));
+
+});
+
+describe('HomeResolver', () => {
+
+  beforeEach(() => {
+    addProviders([HTTP_PROVIDERS, ROUTER_DIRECTIVES, HomeService, HomeResolver]);
+  });
+
+  it('Should return observable', inject([HomeService, HomeResolver], (service, resolver) => {
+    expect(resolver.resolve().toPromise).toBeDefined();
   }));
 
 });
