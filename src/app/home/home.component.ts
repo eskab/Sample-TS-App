@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { HomeService } from './home.service';
 
@@ -10,21 +11,13 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
 
-  private errorMsg: string;
-  private homeData: Object;
+  private homeTitle: string;
 
-  constructor(private homeService: HomeService) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     console.log('Hello Home');
-    this.getHomeData();
-  }
-
-  getHomeData() {
-    this.homeService.getHomeData()
-                      .subscribe(
-                        homeData => this.homeData = homeData,
-                        error => this.errorMsg = <any>error);
+    this.homeTitle = this.route.snapshot.data['homeData'].title;
   }
 
 }

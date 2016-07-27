@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-
 @Injectable()
 export class HomeService {
 
@@ -10,22 +8,23 @@ export class HomeService {
 
     constructor(private http: Http) {}
 
-    getHomeData(): Observable<any[]> {
+    getHomeData(): Promise<any[]> {
         return this.http.get(this.homeDataUrl)
-                .map(this.extractData)
+                .toPromise()
+                .then(this.extractData)
                 .catch(this.handleError);
     }
 
     extractData(res: Response) {
         const body = res.json();
         console.log(body);
-        return body.data || {};
+        return body || {};
     }
 
     handleError(error: any) {
         const errMsg = (error.message) ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.log(errMsg);
-        return Observable.throw(errMsg);
+        return Promise.reject(errMsg);
     }
 
 }
