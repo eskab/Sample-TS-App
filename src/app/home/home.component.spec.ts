@@ -1,6 +1,5 @@
 import {
   inject,
-  async,
   addProviders,
 } from '@angular/core/testing';
 
