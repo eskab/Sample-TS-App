@@ -4,20 +4,21 @@ import {
 } from '@angular/core/testing';
 
 // Load the implementations that should be tested
-import { HomeComponent } from './home.component';
+import { HomeService } from './index';
 
-describe('Home', () => {
+import { HTTP_PROVIDERS } from '@angular/http';
+
+describe('HomeService', () => {
   // provide our implementations or mocks to the dependency injector
   beforeEach(() => {
-    addProviders([HomeComponent]);
+    addProviders([HTTP_PROVIDERS, HomeService]);
   });
 
-  it('should log ngOnInit', inject([HomeComponent], (home) => {
-    spyOn(console, 'log');
-    expect(console.log).not.toHaveBeenCalled();
-
-    home.ngOnInit();
-    expect(console.log).toHaveBeenCalledWith('Hello Home');
+  it('getHomeData() should return data object', inject([HomeService], s => {
+    s.getHomeData().then(x => {
+      expect(x).not.toBeUndefined();
+      expect(x).not.toBeNull();
+    });
   }));
 
 });
