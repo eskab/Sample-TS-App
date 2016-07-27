@@ -17,7 +17,6 @@ export class HomeService {
 
     extractData(res: Response) {
         const body = res.json();
-        console.log(body);
         return body || {};
     }
 

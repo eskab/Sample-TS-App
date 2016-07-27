@@ -12,12 +12,15 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
 
   private homeTitle: string;
+  private homeDesc: string;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log('Hello Home');
-    this.homeTitle = this.route.snapshot.data['homeData'].title;
+    const data = this.route.snapshot.data['homeData'];
+
+    this.homeTitle = data.title;
+    this.homeDesc = data.desc;
   }
 
 }

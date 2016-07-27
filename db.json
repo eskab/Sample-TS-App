@@ -1,5 +1,6 @@
 {
     "homedata": {
-        "title": "Sample TS-NG2 Application"
+        "title": "Sample TS-NG2 Application",
+        "desc": "Sample Typescript & Angular 2 application. Using starter: https://github.com/preboot/angular2-webpack."
     }
 }
